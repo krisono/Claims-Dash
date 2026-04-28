@@ -1,0 +1,5 @@
+config.js
+
+*.md
+!README.md
+

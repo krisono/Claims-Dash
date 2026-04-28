@@ -1,0 +1,40 @@
+:root {
+  --primary:          #1e40af;
+  --primary-light:    #3b82f6;
+  --primary-hover:    #1d4ed8;
+
+  --bg:               #f1f5f9;
+  --card-bg:          #ffffff;
+  --border:           #e2e8f0;
+  --border-focus:     #3b82f6;
+
+  --sidebar-bg:       #0f172a;
+  --sidebar-width:    220px;
+
+  --text-primary:     #1e293b;
+  --text-secondary:   #64748b;
+  --text-muted:       #94a3b8;
+
+  --pending-color:    #d97706;
+  --pending-bg:       #fef3c7;
+  --approved-color:   #059669;
+  --approved-bg:      #d1fae5;
+  --rejected-color:   #dc2626;
+  --rejected-bg:      #fee2e2;
+  --missing-color:    #7c3aed;
+  --missing-bg:       #ede9fe;
+  --damaged-color:    #ea580c;
+  --damaged-bg:       #ffedd5;
+
+  --shadow-sm:  0 1px 3px rgba(0,0,0,0.07), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-md:  0 4px 8px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.04);
+  --shadow-lg:  0 10px 28px rgba(0,0,0,0.10), 0 4px 10px rgba(0,0,0,0.06);
+  --shadow-xl:  0 20px 48px rgba(0,0,0,0.18);
+
+  --radius-sm:  6px;
+  --radius-md:  10px;
+  --radius-lg:  14px;
+  --radius-xl:  20px;
+
+  --transition: 0.15s ease;
+}

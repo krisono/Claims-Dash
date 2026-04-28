@@ -1,0 +1,3 @@
+const CONFIG = {
+  OPENAI_API_KEY: 'Open ai api key',
+};
