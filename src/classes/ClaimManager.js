@@ -63,7 +63,7 @@ class ClaimManager {
     const rejected    = this.claims.filter(c => c.status === 'rejected').length;
     const damaged     = this.claims.filter(c => c.type   === 'damaged').length;
     const missing     = this.claims.filter(c => c.type   === 'missing').length;
-    const totalAmount = this.claims.reduce((sum, c) => sum + c.amount, 0);
+    const totalAmount = this.claims.reduce((sum, c) => sum + c.amount * (c.quantity ?? 1), 0);
 
     return { total, pending, approved, rejected, damaged, missing, totalAmount };
   }

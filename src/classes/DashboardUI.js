@@ -31,6 +31,7 @@ class DashboardUI {
       modalClaimId:       document.getElementById('modal-claim-id'),
       modalType:          document.getElementById('modal-type'),
       modalStatus:        document.getElementById('modal-status'),
+      modalUnitPrice:     document.getElementById('modal-unit-price'),
       modalAmount:        document.getElementById('modal-amount'),
       modalQuantity:      document.getElementById('modal-quantity'),
       modalDate:          document.getElementById('modal-date'),
@@ -174,7 +175,8 @@ class DashboardUI {
 
     this.els.modalItemName.textContent = claim.itemName;
     this.els.modalClaimId.textContent  = claim.id;
-    this.els.modalAmount.textContent   = this._formatCurrency(claim.amount);
+    this.els.modalUnitPrice.textContent = this._formatCurrency(claim.amount);
+    this.els.modalAmount.textContent   = this._formatCurrency(claim.amount * (claim.quantity ?? 1));
     this.els.modalQuantity.textContent = `${claim.quantity ?? 1} item${(claim.quantity ?? 1) !== 1 ? 's' : ''}`;
     this.els.modalDate.textContent     = this._formatDate(claim.date, { full: true });
 
@@ -223,7 +225,7 @@ class DashboardUI {
       </div>
       <div class="claim-item-name">${this._escapeHtml(claim.itemName)}</div>
       <div class="claim-meta">
-        <span class="claim-amount">${this._formatCurrency(claim.amount)}</span>
+        <span class="claim-amount">${this._formatCurrency(claim.amount * (claim.quantity ?? 1))}</span>
         <span class="claim-date">${this._formatDate(claim.date)}</span>
       </div>
       <div class="claim-badges">
