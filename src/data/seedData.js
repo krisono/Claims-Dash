@@ -7,6 +7,7 @@ const SEED_CLAIMS = [
     amount:   1299.99,
     date:     '2026-04-10',
     imageUrl: 'img/Samsung tv.png',
+    quantity: 1,
   },
   {
     id:       'CLM-002',
@@ -16,6 +17,7 @@ const SEED_CLAIMS = [
     amount:   249.00,
     date:     '2026-04-08',
     imageUrl: 'img/airpods 2.jpg',
+    quantity: 2,
   },
   {
     id:       'CLM-003',
@@ -25,6 +27,7 @@ const SEED_CLAIMS = [
     amount:   74.99,
     date:     '2026-04-07',
     imageUrl: 'img/ps5 controller.jpg',
+    quantity: 1,
   },
   {
     id:       'CLM-004',
@@ -34,6 +37,7 @@ const SEED_CLAIMS = [
     amount:   89.95,
     date:     '2026-04-06',
     imageUrl: 'img/instapot.jpg',
+    quantity: 3,
   },
   {
     id:       'CLM-005',
@@ -43,6 +47,7 @@ const SEED_CLAIMS = [
     amount:   749.00,
     date:     '2026-04-05',
     imageUrl: 'img/dyson.webp',
+    quantity: 1,
   },
   {
     id:       'CLM-006',
@@ -52,6 +57,7 @@ const SEED_CLAIMS = [
     amount:   349.99,
     date:     '2026-04-04',
     imageUrl: 'img/nintendo.jpg',
+    quantity: 2,
   },
   {
     id:       'CLM-007',
@@ -61,6 +67,7 @@ const SEED_CLAIMS = [
     amount:   399.00,
     date:     '2026-04-03',
     imageUrl: 'img/kitchenaid.jpg',
+    quantity: 1,
   },
   {
     id:       'CLM-008',
@@ -70,6 +77,7 @@ const SEED_CLAIMS = [
     amount:   599.00,
     date:     '2026-04-02',
     imageUrl: 'img/ipad.jpg',
+    quantity: 4,
   },
   {
     id:       'CLM-009',
@@ -79,6 +87,7 @@ const SEED_CLAIMS = [
     amount:   329.00,
     date:     '2026-04-01',
     imageUrl: 'img/bose headphones.jpg',
+    quantity: 1,
   },
   {
     id:       'CLM-010',
@@ -88,6 +97,7 @@ const SEED_CLAIMS = [
     amount:   199.99,
     date:     '2026-03-30',
     imageUrl: 'img/porsche.jpg',
+    quantity: 2,
   },
   {
     id:       'CLM-011',
@@ -97,6 +107,7 @@ const SEED_CLAIMS = [
     amount:   699.99,
     date:     '2026-03-28',
     imageUrl: 'img/garmin.jpg',
+    quantity: 1,
   },
   {
     id:       'CLM-012',
@@ -106,5 +117,36 @@ const SEED_CLAIMS = [
     amount:   249.00,
     date:     '2026-03-26',
     imageUrl: 'img/ring.webp',
+    quantity: 1,
+  },
+  {
+    id:       'CLM-013',
+    itemName: 'MacBook Air (M3)',
+    type:     'damaged',
+    status:   'pending',
+    amount:   1299.00,
+    date:     '2026-04-22',
+    imageUrl: 'img/MacBook-Air-M3-2.jpg',
+    quantity: 1,
+  },
+  {
+    id:       'CLM-014',
+    itemName: 'iPhone 17 Pro Max',
+    type:     'missing',
+    status:   'pending',
+    amount:   1199.00,
+    date:     '2026-04-20',
+    imageUrl: 'img/Iphone 17.png',
+    quantity: 3,
+  },
+  {
+    id:       'CLM-015',
+    itemName: 'big cup',
+    type:     'damaged',
+    status:   'rejected',
+    amount:   20.99,
+    date:     '2026-04-18',
+    imageUrl: 'img/cupimages.jpeg',
+    quantity: 1,
   },
 ];

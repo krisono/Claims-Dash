@@ -1,5 +1,5 @@
 class Claim {
-  constructor({ id, itemName, type, status = 'pending', amount, date, imageUrl = null }) {
+  constructor({ id, itemName, type, status = 'pending', amount, date, imageUrl = null, quantity = 1 }) {
     this.id       = id;
     this.itemName = itemName;
     this.type     = type;
@@ -7,6 +7,7 @@ class Claim {
     this.amount   = amount;
     this.date     = date;
     this.imageUrl = imageUrl;
+    this.quantity = quantity;
   }
 
   updateStatus(newStatus) {

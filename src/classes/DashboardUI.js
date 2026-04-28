@@ -32,6 +32,7 @@ class DashboardUI {
       modalType:          document.getElementById('modal-type'),
       modalStatus:        document.getElementById('modal-status'),
       modalAmount:        document.getElementById('modal-amount'),
+      modalQuantity:      document.getElementById('modal-quantity'),
       modalDate:          document.getElementById('modal-date'),
       modalImageSection:  document.getElementById('modal-image-section'),
       modalImage:         document.getElementById('modal-image'),
@@ -45,6 +46,7 @@ class DashboardUI {
       formType:        document.getElementById('form-type'),
       formStatus:      document.getElementById('form-status'),
       formAmount:      document.getElementById('form-amount'),
+      formQuantity:    document.getElementById('form-quantity'),
       formDate:        document.getElementById('form-date'),
       formImageFile:   document.getElementById('form-image-file'),
       formImagePreview:document.getElementById('form-image-preview'),
@@ -58,7 +60,7 @@ class DashboardUI {
   }
 
 
-  renderClaims(claims) {
+  renderClaims(claims, skipAnimation = false) {
     const container = this.els.claimsContainer;
     container.innerHTML = '';
 
@@ -80,11 +82,15 @@ class DashboardUI {
       container.appendChild(this._buildClaimCard(claim));
     });
 
-    gsap.fromTo(
-      '.claim-card',
-      { opacity: 0, y: 18 },
-      { opacity: 1, y: 0, duration: 0.35, stagger: 0.045, ease: 'power2.out' }
-    );
+    if (skipAnimation) {
+      gsap.set('.claim-card', { opacity: 0, y: 18 });
+    } else {
+      gsap.fromTo(
+        '.claim-card',
+        { opacity: 0, y: 18 },
+        { opacity: 1, y: 0, duration: 0.35, stagger: 0.045, ease: 'power2.out' }
+      );
+    }
   }
 
   renderSummary(summary) {
@@ -169,6 +175,7 @@ class DashboardUI {
     this.els.modalItemName.textContent = claim.itemName;
     this.els.modalClaimId.textContent  = claim.id;
     this.els.modalAmount.textContent   = this._formatCurrency(claim.amount);
+    this.els.modalQuantity.textContent = `${claim.quantity ?? 1} item${(claim.quantity ?? 1) !== 1 ? 's' : ''}`;
     this.els.modalDate.textContent     = this._formatDate(claim.date, { full: true });
 
     this.els.modalType.innerHTML   = `<span class="badge badge--${claim.type}">${claim.type}</span>`;
@@ -212,6 +219,7 @@ class DashboardUI {
       ${claim.imageUrl ? `<div class="card-image-indicator">📷 Image</div>` : ''}
       <div class="claim-card-header">
         <span class="claim-id">${claim.id}</span>
+        <span class="claim-qty">Qty: ${claim.quantity ?? 1}</span>
       </div>
       <div class="claim-item-name">${this._escapeHtml(claim.itemName)}</div>
       <div class="claim-meta">
@@ -316,6 +324,7 @@ class DashboardUI {
     const type     = this.els.formType.value;
     const status   = this.els.formStatus.value;
     const amount   = parseFloat(this.els.formAmount.value);
+    const quantity = parseInt(this.els.formQuantity.value, 10) || 1;
     const date     = this.els.formDate.value || new Date().toISOString().split('T')[0];
 
     if (!itemName || !type || isNaN(amount) || amount < 0) return;
@@ -323,7 +332,7 @@ class DashboardUI {
     const hasImage  = !this.els.formImagePreview.classList.contains('hidden');
     const imageUrl  = hasImage ? this.els.formPreviewImg.src : null;
 
-    const newClaim = this.manager.createClaim({ itemName, type, status, amount, date, imageUrl });
+    const newClaim = this.manager.createClaim({ itemName, type, status, amount, quantity, date, imageUrl });
 
     this._closeAddModal();
     this.renderSummary(this.manager.getSummary());
