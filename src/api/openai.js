@@ -22,7 +22,9 @@ async function generateInsight(summary) {
   });
 
   if (!response.ok) {
-    throw new Error(`OpenAI API returned ${response.status}`);
+    const errBody = await response.json().catch(() => ({}));
+    const msg = errBody?.error?.message || `status ${response.status}`;
+    throw new Error(`OpenAI API error: ${msg}`);
   }
 
   const data = await response.json();

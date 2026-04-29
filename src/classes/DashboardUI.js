@@ -383,8 +383,9 @@ class DashboardUI {
       const text = await generateInsight(summary);
       this.showInsight(text);
     } catch (err) {
+      console.error('[Insights]', err);
       this.showInsight(
-        'Could not reach the AI service. Check your API key in src/api/openai.js and try again.'
+        `Could not reach the AI service: ${err.message}. Check your API key in config.js and try again.`
       );
     } finally {
       btn.disabled  = false;
